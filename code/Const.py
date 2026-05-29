@@ -8,5 +8,5 @@ MENU_OPTION = ('NEW GAME SINGLE-PLAYER'
                'SCORE'
                'EXIT')
 # Windows
-WIN_WIDTH = 942
+WIN_WIDTH = 943
 WIN_HEIGHT = 577
