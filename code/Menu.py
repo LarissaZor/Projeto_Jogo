@@ -10,7 +10,7 @@ from code.Const import WIN_WIDTH, COLOR_MENU, MENU_OPTION, C_WHITE, C_YELLOW
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./assets/War4/Menubg.png')
+        self.surf = pygame.image.load('./assets/sky.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self):
@@ -19,15 +19,15 @@ class Menu:
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(70, "One", COLOR_MENU, ((WIN_WIDTH / 6), 140))
-            self.menu_text(70, "More", COLOR_MENU, ((WIN_WIDTH / 4), 200))
-            self.menu_text(70, "Night", COLOR_MENU, ((WIN_WIDTH / 5), 260))
+            self.menu_text(30, "The", COLOR_MENU, ((WIN_WIDTH / 2), 50))
+            self.menu_text(40, "Lost", COLOR_MENU, ((WIN_WIDTH / 2), 80))
+            self.menu_text(50, "Alien", COLOR_MENU, ((WIN_WIDTH / 2), 120))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 370 + 40 * i))
+                    self.menu_text(15, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 230 + 20 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 370 + 40 * i))
+                    self.menu_text(15, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 230 + 20 * i))
 
             pygame.display.flip()
 
@@ -54,7 +54,7 @@ class Menu:
 
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
-        text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
+        text_font: Font = pygame.font.SysFont(name="Planes_ValMore", size=text_size)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
