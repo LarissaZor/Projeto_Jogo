@@ -38,20 +38,18 @@ class Menu:
                     pygame.quit()  # Close window
                     quit()  # end game
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_DOWN: # DOWN KEY
+                    if event.key == pygame.K_DOWN:  # DOWN KEY
                         if menu_option < len(MENU_OPTION) - 1:
                             menu_option += 1
                         else:
                             menu_option = 0
-                    if event.key == pygame.K_UP: # UP KEY
+                    if event.key == pygame.K_UP:  # UP KEY
                         if menu_option > 0:
                             menu_option -= 1
                         else:
                             menu_option = len(MENU_OPTION) - 1
-                    if event.key == pygame.K_RETURN: # enter
-                                return MENU_OPTION[menu_option]
-
-
+                    if event.key == pygame.K_RETURN:  # enter
+                        return MENU_OPTION[menu_option]
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Planes_ValMore", size=text_size)
